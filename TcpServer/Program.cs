@@ -6,6 +6,8 @@ using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using Opgave1;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Opgave5
 {
@@ -63,6 +65,8 @@ namespace Opgave5
 
                     case "Hent":
 
+                        FootBallPlayer player = FootBallPlayers.FirstOrDefault(p => p.Id.ToString() == message2);
+                        writer.WriteLine($"{player.Id} {player.Name} {player.ShirtNumber} {player.Price}");
                         writer.WriteLine("Hent");
                         writer.WriteLine(message1);
                         writer.WriteLine(message2);
@@ -90,11 +94,10 @@ namespace Opgave5
                 
                 }
 
-                //writer.WriteLine(message1);
-                //writer.WriteLine(message2);
-                //writer.Flush();
+
             }
         }
+
 
         //private static IPAddress GetIpAddressOfThisComputer()
         //    // https://www.delftstack.com/howto/csharp/get-local-ip-address-in-csharp/
