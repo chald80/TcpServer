@@ -5,4 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="FootBallPlayer">
+      <HintPath>..\..\..\Opgave1\Opgave1\FootBallPlayer\bin\Debug\net5.0\FootBallPlayer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
