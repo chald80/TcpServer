@@ -8,6 +8,7 @@ using System.Text.Json;
 using Opgave1;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace Opgave5
 {
@@ -24,7 +25,12 @@ namespace Opgave5
                 Console.WriteLine("Server ready");
                 TcpClient socket = listener.AcceptTcpClient();
                 Console.WriteLine("Incoming client");
-                DoClient(socket);
+
+
+                Task.Run(() =>
+                {
+                    DoClient(socket);
+                });
             }
         }
 
