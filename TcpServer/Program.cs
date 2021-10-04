@@ -46,6 +46,8 @@ namespace Opgave5
                 string message1 = reader.ReadLine();
                 string message2 = reader.ReadLine();
                 Console.WriteLine("Server received: " + message1);
+                Console.WriteLine("Server received: " + message2);
+
 
                 switch (message1)
                 {
@@ -58,8 +60,6 @@ namespace Opgave5
                         }
                         
                         writer.WriteLine("HentAlle");
-                        writer.WriteLine(message1); 
-                        writer.WriteLine(message2);
                         writer.Flush();
                         break;
 
@@ -68,8 +68,6 @@ namespace Opgave5
                         FootBallPlayer player = FootBallPlayers.FirstOrDefault(p => p.Id.ToString() == message2);
                         writer.WriteLine($"{player.Id} {player.Name} {player.ShirtNumber} {player.Price}");
                         writer.WriteLine("Hent");
-                        writer.WriteLine(message1);
-                        writer.WriteLine(message2);
                         writer.Flush();
                         break;
 
@@ -80,8 +78,6 @@ namespace Opgave5
                         Console.WriteLine("FootBallPlayer" );
 
                         writer.WriteLine("gem");
-                        writer.WriteLine(message1);
-                        writer.WriteLine(message2);
                         writer.Flush();
                         break;
 
@@ -99,13 +95,5 @@ namespace Opgave5
         }
 
 
-        //private static IPAddress GetIpAddressOfThisComputer()
-        //    // https://www.delftstack.com/howto/csharp/get-local-ip-address-in-csharp/
-        //{
-        //    IPHostEntry ipEntry = Dns.GetHostEntry(Dns.GetHostName());
-        //    IPAddress ipAddress = ipEntry.AddressList[0];
-        //    Console.WriteLine("Your IP address: " + ipAddress);
-        //    return ipAddress;
-        //}
     }
 }
